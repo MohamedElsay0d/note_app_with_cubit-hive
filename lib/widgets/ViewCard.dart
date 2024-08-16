@@ -35,38 +35,51 @@ class NoteCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 140,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
         color: _getRandomColor(),
       ),
-      child: const Column(
+      child: Column(
         children: [
           ListTile(
-            title: Text(
-              "Title",
-              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-            ),
-            subtitle: Text(
-              "Sub Title",
-              style: TextStyle(fontSize: 27, fontWeight: FontWeight.bold),
-            ),
-            trailing: Icon(
-              Icons.delete,
-              size: 50,
-              color: Colors.red,
-            ),
-          ),
+              title: Padding(
+                padding: const EdgeInsets.only(bottom: 8.0),
+                child: Text(
+                  "Title",
+                  style: TextStyle(
+                      color: Colors.white.withOpacity(1),
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+              subtitle: Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: Text(
+                  "Sub Title",
+                  style: TextStyle(
+                      color: Colors.white.withOpacity(.85),
+                      fontSize: 27,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+              trailing: IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.delete,
+                  size: 50,
+                  color: Colors.red,
+                ),
+              )),
           Padding(
-            padding: EdgeInsets.only(right: 25.0),
+            padding: const EdgeInsets.only(right: 10.0, bottom: 8.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Text(
                   "May 21/7/2013",
                   style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 20,
+                      color: Colors.black.withOpacity(1),
+                      fontSize: 17,
                       fontWeight: FontWeight.bold),
                 )
               ],
