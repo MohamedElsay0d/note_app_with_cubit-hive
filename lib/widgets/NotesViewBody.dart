@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'CustomAppBar.dart';
+import 'NotesListView.dart';
 import 'ViewCard.dart';
 
 class NotesViewBody extends StatelessWidget {
@@ -8,31 +9,19 @@ class NotesViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 15.0),
+        padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 15.0),
         child: Column(
           children: [
-            const SizedBox(
+            SizedBox(
               height: 15,
             ),
-            const CutomerAppBar(),
-            const SizedBox(
+            CutomerAppBar(),
+            SizedBox(
               height: 10,
             ),
-            Expanded(
-              child: ListView.separated(
-                itemCount: 20,
-                itemBuilder: (context, index) {
-                  return NoteCard();
-                },
-                separatorBuilder: (BuildContext context, int index) {
-                  return const SizedBox(
-                    height: 10,
-                  );
-                },
-              ),
-            ),
+            NotesListView(),
           ],
         ),
       ),
