@@ -26,6 +26,7 @@ class NotesViewBody extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        shape: const StadiumBorder(),
         onPressed: () {
           showModalBottomSheet(
               context: context,
