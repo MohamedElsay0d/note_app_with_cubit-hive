@@ -61,7 +61,15 @@ class NoteCard extends StatelessWidget {
             padding: EdgeInsets.only(right: 25.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
-              children: [Text("data")],
+              children: [
+                Text(
+                  "May 21/7/2013",
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold),
+                )
+              ],
             ),
           )
         ],
