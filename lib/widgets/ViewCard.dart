@@ -43,7 +43,7 @@ class NoteCard extends StatelessWidget {
         children: [
           ListTile(
               title: Padding(
-                padding: const EdgeInsets.only(bottom: 8.0),
+                padding: const EdgeInsets.symmetric(vertical: 8.0),
                 child: Text(
                   "Title",
                   style: TextStyle(
