@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'ViewCard.dart';
+import 'NoteCard.dart';
 
 class NotesListView extends StatelessWidget {
   const NotesListView({
