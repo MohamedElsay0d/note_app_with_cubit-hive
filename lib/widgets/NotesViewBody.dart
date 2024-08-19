@@ -32,6 +32,7 @@ class NotesViewBody extends StatelessWidget {
         shape: const StadiumBorder(),
         onPressed: () {
           showModalBottomSheet(
+              isScrollControlled: true,
               context: context,
               builder: (context) {
                 return const AddNote();
