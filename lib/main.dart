@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
 
 import 'Views/NotesViews.dart';
+import 'constants/Constant.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
-  await Hive.openBox('notebox');
+  await Hive.openBox(noteBox);
   runApp(const MainApp());
 }
 
