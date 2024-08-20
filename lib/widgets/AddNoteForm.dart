@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -19,6 +21,29 @@ class _AddNoteFormState extends State<AddNoteForm> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   String? title, subtitle;
+
+  final Random _random = Random();
+  int _getRandomColorInt() {
+    int generateColorInt() {
+      return (255 << 24) |
+          (_random.nextInt(256) << 16) |
+          (_random.nextInt(256) << 8) |
+          _random.nextInt(256);
+    }
+
+    int colorInt;
+    do {
+      colorInt = generateColorInt();
+    } while (_isColorBright(Color(colorInt)));
+
+    return colorInt;
+  }
+
+  bool _isColorBright(Color color) {
+    final double brightness =
+        (0.299 * color.red + 0.587 * color.green + 0.114 * color.blue);
+    return brightness > 186;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +81,8 @@ class _AddNoteFormState extends State<AddNoteForm> {
                     Notemodel note = Notemodel(
                         title: title!,
                         content: subtitle!,
-                        date: DateTime.now().toIso8601String());
+                        date: DateTime.now().toString(),
+                        color: _getRandomColorInt());
                     BlocProvider.of<AddNoteCubit>(context).addNote(note);
                   } else {
                     autovalidateMode = AutovalidateMode.always;

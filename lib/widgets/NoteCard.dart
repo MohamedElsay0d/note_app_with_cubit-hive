@@ -1,37 +1,14 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:note_app_with_cubit/models/NoteModel.dart';
 
 import '../Views/EditNote.dart';
 
 class NoteCard extends StatelessWidget {
-  NoteCard({super.key});
+  const NoteCard({super.key, required this.notemodel});
 
-  final Random _random = Random();
-
-  Color _getRandomColor() {
-    Color generateColor() {
-      return Color.fromARGB(
-        255,
-        _random.nextInt(256),
-        _random.nextInt(256),
-        _random.nextInt(256),
-      );
-    }
-
-    Color color;
-    do {
-      color = generateColor();
-    } while (_isColorBright(color));
-
-    return color;
-  }
-
-  bool _isColorBright(Color color) {
-    final double brightness =
-        (0.299 * color.red + 0.587 * color.green + 0.114 * color.blue);
-    return brightness > 186;
-  }
+  final Notemodel notemodel;
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +22,7 @@ class NoteCard extends StatelessWidget {
         width: double.infinity,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
-          color: _getRandomColor(),
+          color: Color(notemodel.color),
         ),
         child: Column(
           children: [
@@ -53,7 +30,7 @@ class NoteCard extends StatelessWidget {
                 title: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 8.0),
                   child: Text(
-                    "Title",
+                    notemodel.title,
                     style: TextStyle(
                         color: Colors.white.withOpacity(1),
                         fontSize: 30,
@@ -63,7 +40,7 @@ class NoteCard extends StatelessWidget {
                 subtitle: Padding(
                   padding: const EdgeInsets.only(top: 8.0),
                   child: Text(
-                    "Sub Title",
+                    notemodel.content,
                     style: TextStyle(
                         color: Colors.white.withOpacity(.85),
                         fontSize: 27,
@@ -84,7 +61,7 @@ class NoteCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Text(
-                    "May 21/7/2013",
+                    notemodel.date,
                     style: TextStyle(
                         color: Colors.black.withOpacity(1),
                         fontSize: 17,

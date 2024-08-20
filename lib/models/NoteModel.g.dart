@@ -10,7 +10,8 @@ class NotemodelAdapter extends TypeAdapter<Notemodel> {
     final title = reader.readString();
     final content = reader.readString();
     final date = reader.readString();
-    return Notemodel(title: title, content: content, date: date);
+    final color = reader.readInt();
+    return Notemodel(title: title, content: content, date: date, color: color);
   }
 
   @override
@@ -18,5 +19,6 @@ class NotemodelAdapter extends TypeAdapter<Notemodel> {
     writer.writeString(obj.title);
     writer.writeString(obj.content);
     writer.writeString(obj.date);
+    writer.writeInt(obj.color);
   }
 }
