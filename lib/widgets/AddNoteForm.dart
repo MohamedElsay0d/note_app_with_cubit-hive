@@ -6,6 +6,7 @@ import 'package:intl/intl.dart';
 
 import '../controllers/cubit/add_note_cubit_cubit.dart';
 import '../models/NoteModel.dart';
+import 'ColorListview.dart';
 import 'CustomButtonAdd.dart';
 import 'CustomTextField.dart';
 
@@ -73,6 +74,10 @@ class _AddNoteFormState extends State<AddNoteForm> {
           const SizedBox(
             height: 20,
           ),
+          const ColorListview(),
+          const SizedBox(
+            height: 20,
+          ),
           BlocBuilder<AddNoteCubit, AddNoteCubitState>(
             builder: (context, state) {
               return CustomAddButton(
@@ -83,7 +88,8 @@ class _AddNoteFormState extends State<AddNoteForm> {
                         title: title!,
                         content: subtitle!,
                         date: DateFormat.yMd().format(DateTime.now()),
-                        color: _getRandomColorInt());
+                        color:
+                            BlocProvider.of<AddNoteCubit>(context).color.value);
                     BlocProvider.of<AddNoteCubit>(context).addNote(note);
                   } else {
                     autovalidateMode = AutovalidateMode.always;
