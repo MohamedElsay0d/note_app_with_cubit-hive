@@ -1,9 +1,9 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:note_app_with_cubit/models/NoteModel.dart';
 
 import '../Views/EditNote.dart';
+import '../controllers/cubit/read_notes_cubit.dart';
 
 class NoteCard extends StatelessWidget {
   const NoteCard({super.key, required this.notemodel});
@@ -48,7 +48,10 @@ class NoteCard extends StatelessWidget {
                   ),
                 ),
                 trailing: IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    notemodel.delete();
+                    BlocProvider.of<ReadNotesCubit>(context).fetchAllNotes();
+                  },
                   icon: const Icon(
                     Icons.delete,
                     size: 50,
