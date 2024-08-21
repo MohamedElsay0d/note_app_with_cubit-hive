@@ -20,6 +20,7 @@ class _EditnotebodyState extends State<Editnotebody> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 15.0),
         child: Column(
