@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../controllers/cubit/read_notes_cubit.dart';
-import 'AddNote.dart';
 import 'CustomAppBar.dart';
 import 'NotesListView.dart';
 
